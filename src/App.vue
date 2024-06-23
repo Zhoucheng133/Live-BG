@@ -1,12 +1,12 @@
 <template>
   <img :src='bg' alt="" width="1920px">
   <div class="infoBorder">
-    <div :class="useScroll ? 'songInfo_withAnimate':'songInfo'" ref="text">
+    <div id="text" :class="useScroll ? 'songInfo_withAnimate':'songInfo'" >
       {{ songText }}
     </div>
   </div>
   <div class="lyricBorder">
-    歌词显示在这
+    {{lyricText}}
   </div>
 </template>
 
@@ -19,13 +19,22 @@ const songText = ref('...');
 const lyricText=ref('...');
 
 watch(songText, (newVal)=>{
-  const text=ref(null);
-  if(text.value.scrollWidth>620){
+  const text=document.getElementById('text');
+  if(text.scrollWidth>620){
     useScroll.value=true;
   }else{
     useScroll.value=false;
   }
 })
+
+// ws服务连接
+const socket=new WebSocket('ws://localhost:9098');
+socket.onmessage=function(event){
+  // console.log(event.data);
+  const lines=event.data.split('\n');
+  songText.value=`${lines[1]} - ${lines[0]}`;
+  lyricText.value=`${lines[2]}`;
+}
 </script>
 
 <style>
@@ -72,7 +81,7 @@ watch(songText, (newVal)=>{
   /* display: flex; */
   /* align-items: center; */
   line-height: 60px;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
