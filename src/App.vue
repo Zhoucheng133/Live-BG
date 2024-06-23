@@ -40,6 +40,9 @@ socket.onmessage=function(event){
 </script>
 
 <style>
+body{
+  margin: 0;
+}
 .lyricBorder{
   position: absolute;
   /* bottom: 178px; */
