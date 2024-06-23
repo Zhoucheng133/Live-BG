@@ -41,8 +41,9 @@ socket.onmessage=function(event){
 
 <style>
 .lyricBorder{
-  position: fixed;
-  bottom: 178px;
+  position: absolute;
+  /* bottom: 178px; */
+  top: 948px;
   height: 60px;
   width: 730px;
   left: 730px;
@@ -74,8 +75,9 @@ socket.onmessage=function(event){
 }
 
 .infoBorder {
-  position: fixed;
-  bottom: 180px;
+  position: absolute;
+  /* bottom: 180px; */
+  top: 950px;
   width: 630px;
   height: 60px;
   /* background-color: red; */
