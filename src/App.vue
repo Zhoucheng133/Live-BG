@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { nextTick, ref, watch } from "vue";
 import bg from "./assets/bg.png";
 
@@ -18,15 +18,18 @@ const useScroll=ref(false);
 const songText = ref('...');
 const lyricText=ref('...');
 
-watch(songText, async (newVal)=>{
+watch(songText, async ()=>{
   useScroll.value=false;
   await nextTick();
   const text=document.getElementById('text');
-  if(text.scrollWidth>620){
-    useScroll.value=true;
-  }else{
-    useScroll.value=false;
+  if(text){
+    if(text.scrollWidth>620){
+      useScroll.value=true;
+    }else{
+      useScroll.value=false;
+    }
   }
+  
 })
 
 // ws服务连接
