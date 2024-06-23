@@ -11,15 +11,19 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { nextTick, ref, watch } from "vue";
 import bg from "./assets/bg.png";
 
 const useScroll=ref(false);
 const songText = ref('...');
 const lyricText=ref('...');
 
-watch(songText, (newVal)=>{
+watch(songText, async (newVal)=>{
+  useScroll.value=false;
+  await nextTick();
   const text=document.getElementById('text');
+  // console.log(text);
+  // console.log(text.scrollWidth);
   if(text.scrollWidth>620){
     useScroll.value=true;
   }else{
