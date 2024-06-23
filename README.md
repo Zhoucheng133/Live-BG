@@ -1,3 +1,2 @@
-# 直播模板
-
-用于兼容[netPlayer](https://github.com/Zhoucheng133/netPlayer-Next)
+A sample command-line application with an entrypoint in `bin/`, library code
+in `lib/`, and example unit test in `test/`.
