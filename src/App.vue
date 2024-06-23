@@ -46,7 +46,7 @@ body{
 .lyricBorder{
   position: absolute;
   /* bottom: 178px; */
-  top: 948px;
+  top: 949px;
   height: 60px;
   width: 730px;
   left: 730px;
