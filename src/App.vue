@@ -22,8 +22,6 @@ watch(songText, async (newVal)=>{
   useScroll.value=false;
   await nextTick();
   const text=document.getElementById('text');
-  // console.log(text);
-  // console.log(text.scrollWidth);
   if(text.scrollWidth>620){
     useScroll.value=true;
   }else{
