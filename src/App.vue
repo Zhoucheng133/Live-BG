@@ -35,7 +35,6 @@ watch(songText, async ()=>{
 // ws服务连接
 const socket=new WebSocket('ws://localhost:9098');
 socket.onmessage=function(event){
-  // console.log(event.data);
   const lines=event.data.split('\n');
   songText.value=`${lines[1]} - ${lines[0]}`;
   lyricText.value=`${lines[2]}`;
@@ -52,7 +51,7 @@ body{
   top: 949px;
   height: 60px;
   width: 730px;
-  left: 730px;
+  left: 723px;
   line-height: 60px;
   color: white;
   font-size: 27px;
@@ -87,7 +86,8 @@ body{
   width: 630px;
   height: 60px;
   /* background-color: red; */
-  padding-left: 10px;
+  /* padding-left: 10px; */
+  left: 8px;
   /* display: flex; */
   /* align-items: center; */
   line-height: 60px;
