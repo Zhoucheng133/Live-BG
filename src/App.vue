@@ -35,9 +35,9 @@ watch(songText, async ()=>{
 // ws服务连接
 const socket=new WebSocket('ws://localhost:9098');
 socket.onmessage=function(event){
-  const lines=event.data.split('\n');
-  songText.value=`${lines[1]} - ${lines[0]}`;
-  lyricText.value=`${lines[2]}`;
+  const jsonData=JSON.parse(event.data);
+  songText.value=`${jsonData.artist} - ${jsonData.title}`;
+  lyricText.value=jsonData.lyric;
 }
 </script>
 
