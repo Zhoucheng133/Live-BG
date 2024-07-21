@@ -13,6 +13,7 @@
 <script setup lang="ts">
 import { nextTick, ref, watch } from "vue";
 import bg from "./assets/bg.png";
+import axios from "axios";
 
 const useScroll=ref(false);
 const songText = ref('...');
@@ -33,7 +34,8 @@ watch(songText, async ()=>{
 })
 
 // ws服务连接
-const socket=new WebSocket('ws://localhost:9098');
+const port=axios.get("/api/port");
+const socket=new WebSocket(`ws://localhost:${port}`);
 socket.onmessage=function(event){
   const jsonData=JSON.parse(event.data);
   songText.value=`${jsonData.artist} - ${jsonData.title}`;
