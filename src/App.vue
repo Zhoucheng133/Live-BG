@@ -32,15 +32,17 @@ watch(songText, async ()=>{
   }
   
 })
-
 // ws服务连接
-const port=axios.get("/api/port");
-const socket=new WebSocket(`ws://localhost:${port}`);
-socket.onmessage=function(event){
-  const jsonData=JSON.parse(event.data);
-  songText.value=`${jsonData.artist} - ${jsonData.title}`;
-  lyricText.value=jsonData.lyric;
+const initWs=async ()=>{
+  const port=await axios.get("/api/port");
+  const socket=new WebSocket(`ws://localhost:${port.data}`);  
+  socket.onmessage=function(event){
+    const jsonData=JSON.parse(event.data);
+    songText.value=`${jsonData.artist} - ${jsonData.title}`;
+    lyricText.value=jsonData.lyric;
+  }
 }
+initWs();
 </script>
 
 <style>
