@@ -2,6 +2,8 @@
 
 用于兼容[netPlayer](https://github.com/Zhoucheng133/netPlayer-Next)
 
+**注意，低于v3.1.2版本的netPlayer使用v1.0.1，v3.1.2或更新版本的netPlayer使用v1.0.2或更新的版本**
+
 ## 截图
 
 ![截图](other/demo.png)
