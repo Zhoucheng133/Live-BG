@@ -15,10 +15,10 @@ def serve_port():
     return port
 
 if __name__ == '__main__':
-    port=input("输入端口号 (默认为9098): ")
+    port=input("Input port (Press Enter to use deafult port 9098): ")
     if port=="":
         port="9098"
-        print("使用默认端口: 9098")
-    print("服务运行在: http://127.0.0.1:5000")
+        print("➜ Use default port: 9098")
+    print("➜ Service starts at http://127.0.0.1:5000")
     server=pywsgi.WSGIServer(('0.0.0.0', 5000), app, log=None)
     server.serve_forever()
