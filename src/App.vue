@@ -34,8 +34,13 @@ watch(songText, async ()=>{
 })
 // ws服务连接
 const initWs=async ()=>{
-  const port=await axios.get("/api/port");
-  const socket=new WebSocket(`ws://localhost:${port.data}`);  
+  const port=(await axios.get("/api/port")).data;
+  const socket=new WebSocket(`ws://localhost:${port}`);  
+  socket.onopen=()=>{
+    socket.send(JSON.stringify({
+      'command': 'get'
+    }));
+  }
   socket.onmessage=function(event){
     const jsonData=JSON.parse(event.data);
     songText.value=`${jsonData.artist} - ${jsonData.title}`;
