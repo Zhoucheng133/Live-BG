@@ -15,10 +15,14 @@ def serve_port():
     return port
 
 if __name__ == '__main__':
-    port=input("Input port (Press Enter to use deafult port 9098): ")
+    service=input("Input service port (Press Enter to use default port 5000): ")
+    if service=="":
+        service="5000"
+        print("➜ Use default service port: 5000")
+    port=input("Input ws port (Press Enter to use deafult port 9098): ")
     if port=="":
         port="9098"
         print("➜ Use default port: 9098")
-    print("➜ Service starts at http://127.0.0.1:5000")
-    server=pywsgi.WSGIServer(('0.0.0.0', 5000), app, log=None)
+    print("➜ Service starts at http://127.0.0.1:{}".format(service))
+    server=pywsgi.WSGIServer(('0.0.0.0', int(service)), app, log=None)
     server.serve_forever()
