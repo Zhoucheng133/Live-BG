@@ -3,8 +3,11 @@ package main
 import (
 	"embed"
 	"fmt"
+	"io"
+	"mime"
 	"net/http"
 	"os"
+	"path/filepath"
 )
 
 var port string
@@ -43,19 +46,29 @@ func serveAssets(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer file.Close()
-
-	stat, err := file.Stat()
-	if err != nil || stat.IsDir() {
-		http.NotFound(w, r)
+	fileInfo, err := file.Stat()
+	if err != nil {
+		http.Error(w, "Unable to stat file", http.StatusInternalServerError)
 		return
 	}
 
-	http.ServeFile(w, r, "web/dist/assets/"+path)
+	// 动态获取文件的 MIME 类型
+	ext := filepath.Ext(path)
+	contentType := mime.TypeByExtension(ext)
+	if contentType == "" {
+		contentType = "application/octet-stream"
+	}
+
+	w.Header().Set("Content-Type", contentType)
+	w.Header().Set("Content-Length", fmt.Sprintf("%d", fileInfo.Size()))
+	w.Header().Set("Last-Modified", fileInfo.ModTime().UTC().Format(http.TimeFormat))
+	_, err = io.Copy(w, file)
+	if err != nil {
+		http.Error(w, "Unable to send file", http.StatusInternalServerError)
+	}
 }
 
 func main() {
-	port = "9098"
-	servicePort = "5001"
 	fmt.Print("Input netPlayer ws port (Press Enter to use deafult port 9098): ")
 	fmt.Scanln(&port)
 	if port == "" {
