@@ -5,6 +5,12 @@ Live background for [netPlayer](https://github.com/Zhoucheng133/netPlayer-Next)
 > [!WARNING]
 > Make sure your netPlayer version above v3.1.2
 
+## Usage
+
+1. You need to **open WebSocket service on your netPlayer**. Remember the service port. (Default 9098)
+2. Open this program and input WebSocket port and webpage port. (Default 5000)
+3. Use this service as brower source on OBS
+
 ## Screenshot
 
 ![Screenshot](other/demo.png)

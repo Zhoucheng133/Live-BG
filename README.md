@@ -7,6 +7,12 @@ Also available in English. Click [HERE](README_EN.md) to see document of English
 > [!WARNING]
 > 确保你的netPlayer版本不低于v3.1.2
 
+## 使用方法
+
+1. 你需要**打开netPlayer的WebSocket服务**，并且记住端口号（默认为9098）
+2. 使用本程序输入WebSocket的端口号和服务的端口号（默认为5000）
+3. 通过OBS将本服务作为浏览器来源
+
 ## 截图
 
 ![截图](other/demo.png)
