@@ -1,24 +1,22 @@
 # LiveBG
 
-Also available in English. Click [HERE](README_EN.md) to see document of English version
-
-[netPlayer](https://github.com/Zhoucheng133/netPlayer-Next)的直播背景
+Live background for [netPlayer](https://github.com/Zhoucheng133/netPlayer-Next)
 
 > [!WARNING]
-> 确保你的netPlayer版本不低于v3.1.2
+> Make sure your netPlayer version above v3.1.2
 
-## 截图
+## Screenshot
 
-![截图](other/demo.png)
+![Screenshot](other/demo.png)
 
-## 自行打包
+## Package yourself
 
-### 准备工作
+### Preparation
 - Node.js (≥ Node18)
 - Go (≥1.16)
-- yarn (在安装Node.js的情况下可以使用命令`npm install -g yarn`安装)
+- yarn (Use command `npm install -g yarn` to install if you installed Node.js)
 
-### 运行
+### Run
 ```bash
 cd web
 yarn build
@@ -26,7 +24,7 @@ cd ..
 go run app.go
 ```
 
-### 打包
+### Build
 
 ```bash
 cd web
@@ -35,13 +33,16 @@ cd ..
 go build
 ```
 
-## 更新内容
+
+## Update log
+
 
 ### 1.1.0
-- 使用Go语言重构项目
+- Redevelop with Go
+- Disable dragging bg image
 
 <details>
-<summary>过去的版本</summary>
+<summary>Previous version (NOT fully translated)</summary>
 
 ### 1.0.4 (2024/12/26)
 - 添加手动输入服务地址的功能
