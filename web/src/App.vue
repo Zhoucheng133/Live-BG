@@ -1,5 +1,5 @@
 <template>
-  <img :src='bg' alt="" width="1920px">
+  <img :src='bg' alt="" width="1920px" draggable="false">
   <div class="infoBorder">
     <div id="text" :class="useScroll ? 'songInfo_withAnimate':'songInfo'" >
       {{ songText }}
