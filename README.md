@@ -45,6 +45,7 @@ go build
 
 ### 1.1.0
 - 使用Go语言重构项目
+- 禁用图片拖拽
 
 <details>
 <summary>过去的版本</summary>
