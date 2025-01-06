@@ -44,7 +44,6 @@ func main() {
 			} else {
 				filePath = "web/dist" + filePath
 			}
-			fmt.Println(filePath)
 			file, err := staticFiles.Open(filePath)
 			if err != nil {
 				c.JSON(http.StatusNotFound, gin.H{"error": fmt.Sprintf("File not found: %s", filePath)})
