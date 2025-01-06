@@ -36,6 +36,7 @@ go run app.go
 cd web
 yarn build
 cd ..
+go mod download
 go build
 ```
 

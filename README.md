@@ -29,6 +29,7 @@ Also available in English. Click [HERE](README_EN.md) to see document of English
 cd web
 yarn build
 cd ..
+go mod download
 go run app.go
 ```
 
