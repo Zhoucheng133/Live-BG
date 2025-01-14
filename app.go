@@ -18,7 +18,7 @@ var servicePort string
 var staticFiles embed.FS
 
 func main() {
-	fmt.Print("Input netPlayer ws port (Press Enter to use deafult port 9098): ")
+	fmt.Print("Input netPlayer ws port (Press Enter to use default port 9098): ")
 	fmt.Scanln(&port)
 	if port == "" {
 		port = "9098"
